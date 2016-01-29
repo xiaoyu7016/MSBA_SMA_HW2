@@ -42,28 +42,69 @@ def one_tweet_per_element(raw_tweets_list):
         
     return empty_list
 
-raw_tweets = crawl_tweets("food",100)
+raw_tweets = crawl_tweets("zika",100)
 messaged_tweets = one_tweet_per_element(raw_tweets)
 ## Why list elements < 100 * 100??
 
 ####################################
 # formatting to nice csv-ish file
 ####################################
-
-def collect_1st_layer_field_from_each_user(title_string,messaged_tweets_list):
-
-    """ NOT WORKING"""
-    
+def collect_tweet_level_field_from_each_user(title_string,messaged_tweets_list):
+    """Retrieve info at per-tweet level"""
     empty_list = []
     for i in range(len(messaged_tweets_list)):
-        empty_list.append(messaged_tweets_list[title_string])
+        empty_list.append(messaged_tweets_list[i][title_string])
+    
+    return empty_list
+    
+def collect_user_level_field_from_each_user(title_string,messaged_tweets_list):
+    """Retrieve info at per-user level"""    
+    empty_list = []
+    for i in range(len(messaged_tweets_list)):
+        empty_list.append(messaged_tweets_list[i]['user'][title_string])
     
     return empty_list
 
-text = collect_1st_layer_field_from_each_user('text',messaged_tweets)
+# Tweet level fields
+messaged_tweets[0].keys()
 
+tweet_id = collect_tweet_level_field_from_each_user('id',messaged_tweets)
+text = collect_tweet_level_field_from_each_user('text',messaged_tweets)
+retweet_count = collect_tweet_level_field_from_each_user('retweet_count',messaged_tweets)
 
-with open('mycsvfile.csv', 'wb') as f:  # Just use 'w' mode in 3.x
-    w = csv.DictWriter(f, my_dict.keys())
-    w.writeheader()
-    w.writerow(my_dict)
+# Second layer fields
+messaged_tweets[0]['user'].keys()
+
+user_id = collect_user_level_field_from_each_user('id',messaged_tweets)
+following = collect_user_level_field_from_each_user('following',messaged_tweets)
+followers_count = collect_user_level_field_from_each_user('followers_count',messaged_tweets)
+listed_count = collect_user_level_field_from_each_user('listed_count', messaged_tweets)
+friends_count = collect_user_level_field_from_each_user('friends_count',messaged_tweets)
+favourites_count =   collect_user_level_field_from_each_user('favourites_count',messaged_tweets)
+statuses_count = collect_user_level_field_from_each_user('statuses_count', messaged_tweets)
+location = collect_user_level_field_from_each_user('location',messaged_tweets)
+created_at = collect_user_level_field_from_each_user('created_at',messaged_tweets)
+verified = collect_user_level_field_from_each_user('verified',messaged_tweets)
+description = collect_user_level_field_from_each_user('description',messaged_tweets)
+
+tweets_dict = {
+    'tweet_id' : tweet_id,
+    'text' : text,
+    'retweet_count' : retweet_count,
+    'user_id' : user_id,
+    'following' : following,
+    'followers_count' : followers_count,
+    'listed_count' : listed_count,
+    'friends_count' : friends_count,
+    'favourites_count' : favourites_count,
+    'statuses_count' : statuses_count,
+    'location' : location,
+    'created_at' : created_at,
+    'verified' : verified,
+    'description' :description
+    
+}
+
+tweets_df = pd.DataFrame(data = tweets_dict, columns = tweets_dict.keys())
+
+tweets_df.to_csv('zika_tweets_per_tweet.csv', encoding = 'utf-8')
