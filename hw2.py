@@ -31,7 +31,7 @@ def crawl_tweets(topic_string,num_of_calls):
        (3) returns a list, each element contains 100 tweets"""
     empty_list = []
     for i in range(num_of_calls):
-        empty_list.append(twitter.search(q=topic_string,count=100))
+        empty_list.append(twitter.search(q=topic_string,lang = 'en',count=100))
     
     return empty_list
 
