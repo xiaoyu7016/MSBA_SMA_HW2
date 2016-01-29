@@ -76,6 +76,7 @@ retweet_count = collect_tweet_level_field_from_each_user('retweet_count',message
 messaged_tweets[0]['user'].keys()
 
 user_id = collect_user_level_field_from_each_user('id',messaged_tweets)
+screen_name = collect_user_level_field_from_each_user('screen_name',messaged_tweets)
 following = collect_user_level_field_from_each_user('following',messaged_tweets)
 followers_count = collect_user_level_field_from_each_user('followers_count',messaged_tweets)
 listed_count = collect_user_level_field_from_each_user('listed_count', messaged_tweets)
@@ -92,6 +93,7 @@ tweets_dict = {
     'text' : text,
     'retweet_count' : retweet_count,
     'user_id' : user_id,
+    'screen_name' : screen_name,
     'following' : following,
     'followers_count' : followers_count,
     'listed_count' : listed_count,
