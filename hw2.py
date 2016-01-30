@@ -77,7 +77,7 @@ messaged_tweets[0]['user'].keys()
 
 user_id = collect_user_level_field_from_each_user('id',messaged_tweets)
 screen_name = collect_user_level_field_from_each_user('screen_name',messaged_tweets)
-following = collect_user_level_field_from_each_user('following',messaged_tweets)
+following = collect_user_level_field_from_each_user('friends_count',messaged_tweets)
 followers_count = collect_user_level_field_from_each_user('followers_count',messaged_tweets)
 listed_count = collect_user_level_field_from_each_user('listed_count', messaged_tweets)
 friends_count = collect_user_level_field_from_each_user('friends_count',messaged_tweets)
