@@ -14,13 +14,16 @@
 #### Jan 27
 0. Format Tweets to nice, analyzable csv format (Check on Jan 29)
 1. Communicate w/ team on topic choosing (Check : Zika)
-2. Finish up task 1
-3. Recap NLTK, head start on task 2
+2. Finish up task 1 (Check on Jan 30)
+3. Recap NLTK, head start on task 2 (Vivian got it on Jan 29)
 
 
 #### Jan 29
-1. Finish up task 1
+1. Finish up task 1 (Check on Jan 30)
+ -- 2 Questions:
+    (1) Can we apply coefficients learnt from a different data set w/ different data, structure, even form of features?
+    (2) If "yes" to (1), why do we need to normalize features?
 
 #### Jan 30-31
-1. Task 2
+1. Task 2 (Vivian got it on Jan 29)
 2. Play around w/ gephi
