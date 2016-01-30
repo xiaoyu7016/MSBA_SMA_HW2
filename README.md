@@ -20,9 +20,6 @@
 
 #### Jan 29
 1. Finish up task 1 (Check on Jan 30)
- -- 2 Questions:
-    (1) Can we apply coefficients learnt from a different data set w/ different data, structure, even form of features?
-    (2) If "yes" to (1), why do we need to normalize features?
 
 #### Jan 30-31
 1. Task 2 (Vivian got it on Jan 29)
